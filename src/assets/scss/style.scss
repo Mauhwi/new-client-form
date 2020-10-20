@@ -7,10 +7,10 @@ $color-light: #8882ab;
 body {
   font-family: $font-stack;
   color: $text-color;
+
   .new-client-form {
     display: flex;
     flex-direction: column;
-    margin: 0 1rem;
     max-width: 1300px;
     margin: auto;
     min-width: 320px;
@@ -18,11 +18,17 @@ body {
     .error {
       font-size: 0.8rem;
       color: #b22222;
+      position: absolute;
+    }
+
+    .inputFieldError {
+      border-color: #b22222;
     }
 
     .section-header {
       flex-basis: 95%;
     }
+    
     input {
       background-color: white;
       height: 1.5rem;
@@ -31,17 +37,31 @@ body {
       border: 1px solid gray;
       border-radius: 3px;
     }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+
     select {
       background-color: white;
     }
+
     input:focus {
       outline-color: $primary-color;
     }
+
     label {
       margin-top: 1em;
       font-weight: 600;
       font-size: 0.9em;
     }
+
     h2 {
       align-self: center;
     }
@@ -51,26 +71,31 @@ body {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
+
       .input-panel {
         display: flex;
         flex-direction: column;
         flex-basis: 45%;
+        padding-bottom: .5rem;
       }
+
       .gender-selector {
         margin: 1rem 0;
         display: flex;
         flex-direction: column;
         flex-basis: 95%;
+
         p {
           margin: 0;
           font-weight: 600;
         }
 
-        //Кастомный радио индикатор
+        //радио индикатор
         .radio {
           display: flex;
           flex-direction: row;
           align-items: center;
+          padding-bottom: .5rem;
           .container {
             display: block;
             position: relative;
@@ -141,7 +166,7 @@ body {
           }
         }
 
-        //Кастомный чекбокс
+        //чекбокс
         .container {
           display: block;
           position: relative;
@@ -221,6 +246,7 @@ body {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
+
       .address-input-panel {
         display: flex;
         flex-direction: column;
@@ -241,11 +267,13 @@ body {
         display: flex;
         flex-basis: 28%;
         flex-direction: column;
+        padding-bottom: .5rem;
       }
       .select-wrapper {
         display: flex;
         flex-direction: column;
         flex-basis: 28%;
+        padding-bottom: .5rem;
         select {
           height: 2.6rem;
           padding-left: 1em;
@@ -260,7 +288,7 @@ body {
       }
     }
 
-
+    //-------------------Отправка и обработка данных------------------
     .submit-wrapper {
       width: 95%;
       display: flex;
@@ -301,8 +329,6 @@ body {
         }
       }
     }
-
-    //---------------------------Обработка---------------------------
 
     .modal {
       display: flex;
@@ -370,19 +396,22 @@ body {
       .documents {
         flex-direction: column;
         align-items: center;
+        .section-header {
+          width: 95%;
+        }
         .doc-input-panel {
-          width: 90%;
+          width: 95%;
           margin: 0 1rem;
           select {
-            width: 90%;
+            width: 95%;
           }
         }
         .select-wrapper {
-          width: 90%;
+          width: 95%;
         }
       }
       .submit-wrapper {
-        width: 90%;
+        width: 95%;
       }
     }
   }
@@ -394,12 +423,20 @@ body {
       min-width: 300px;
       .personal-info {
         flex-direction: column;
+
         .input-panel {
           margin: 0 1rem;
         }
-        .gender-selector,
-        .phone {
-          margin: 1rem 1rem;
+        .gender-selector, .phone {
+          width: 90%;
+          margin: 1rem auto;
+        }
+
+        .client-info {
+          justify-content: center;
+          width: 90%;
+          margin: auto;
+          flex-direction: column;       
         }
       }
       .address {
